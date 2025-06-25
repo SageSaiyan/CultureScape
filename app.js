@@ -26,8 +26,8 @@ const helmet=require('helmet');
 const MongoStore=require('connect-mongo');
 const { log } = require('console');
 
-// const dbUrl=process.env.DB_URL;
-const dbUrl='mongodb://127.0.0.1:27017/culture-scape';
+const dbUrl=process.env.DB_URL;
+// const dbUrl='mongodb://127.0.0.1:27017/culture-scape';
 // 'mongodb://127.0.0.1:27017/culture-scape'
 mongoose.connect("mongodb://127.0.0.1:27017/culture-scape")
     .then(() => {
