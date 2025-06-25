@@ -1,0 +1,129 @@
+<% layout('layout/boilerplate') %>
+
+<style>
+  .form-wrapper {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
+  }
+
+  h1.title-heading {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #0d47a1;
+  }
+
+  .img-thumbnail {
+    width: 100px;
+    border-radius: 6px;
+    margin-right: 1rem;
+  }
+
+  .btn-update {
+    background-color: #198754;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .btn-update:hover {
+    background-color: #146c43;
+    color: white;
+  }
+
+  .btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .btn-cancel:hover {
+    background-color: #bb2d3b;
+    color: white;
+  }
+
+  .image-delete-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .checkbox-label {
+    font-size: 0.9rem;
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<div class="container">
+  <h1 class="text-center title-heading">Edit Cultural Site</h1>
+  <div class="col-lg-6 offset-lg-3 form-wrapper">
+    <form action="/culturalsites/<%= culturalsite._id %>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input class="form-control" type="text" name="culturalsite[title]" id="title" value="<%= culturalsite.title %>" required>
+        <div class="invalid-feedback">Title Required</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input class="form-control" type="text" name="culturalsite[location]" id="location" value="<%= culturalsite.location %>" required>
+        <div class="invalid-feedback">Location Required</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload New Image(s)</label>
+        <input class="form-control" type="file" id="image" name="image" multiple>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">₹</span>
+          <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="culturalsite[price]" value="<%= culturalsite.price %>" required>
+          <div class="invalid-feedback">Price Required</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea class="form-control" name="culturalsite[description]" id="description" rows="4" required><%= culturalsite.description %></textarea>
+        <div class="invalid-feedback">Description Required</div>
+      </div>
+
+      <% if (culturalsite.images.length) { %>
+        <div class="mb-3 image-delete-section">
+          <% culturalsite.images.forEach(function(img, i) { %>
+            <div class="text-center">
+              <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="Uploaded image">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%= img.filename %>">
+                <label class="form-check-label checkbox-label" for="image-<%= i %>">Delete</label>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn btn-update">✔ Update Site</button>
+        <a href="/culturalsites/<%= culturalsite._id %>" class="btn btn-cancel">✖ Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<style>
+    .footer {
+      background-color: #1c1f23;
+      color: #cfd4da;
+      font-family: 'Inter', sans-serif;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+      border-top: 1px solid #2b2e33;
+    }
+  
+    .footer .footer-brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+  
+    .footer .footer-divider-top {
+      height: 1px;
+      background-color: #2b2e33;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+  
+    .footer .footer-links {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.25rem;
+    }
+  
+    .footer a {
+      color: #cfd4da;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+  
+    .footer a:hover {
+      color: #00bcd4; /* New hover color (cyan tone) */
+    }
+  
+    .footer .footer-divider {
+      height: 1px;
+      background-color: #2b2e33;
+      margin: 1rem 0;
+      width: 100%;
+    }
+  
+    .footer .footer-bottom {
+      font-size: 0.85rem;
+      color: #868e96;
+    }
+  
+    .footer .footer-author {
+      font-weight: 500;
+      color: #ffffff;
+    }
+  
+    @media (max-width: 576px) {
+      .footer .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+  
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="footer-brand">CultureScape</div>
+      <div class="footer-divider-top"></div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/culturalsites">Explore Sites</a>
+        <a href="/culturalsites/new">Add a Site</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        &copy; <%= new Date().getFullYear() %> CultureScape. Made with ❤️ by
+        <span class="footer-author">Shreyansh Jugran</span>
+      </div>
+    </div>
+  </footer>
+  

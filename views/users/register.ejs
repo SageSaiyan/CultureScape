@@ -1,0 +1,44 @@
+<% layout('layout/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center mt-3 mb-5">
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-6 col-xl-4">
+      <div class="card shadow-lg">
+        <img
+          src="https://media.istockphoto.com/id/930824730/photo/machu-picchu-peru.jpg?s=612x612&w=0&k=20&c=sXUMiy9gRGKow9GHNY_S9BH_ZEekIEcpDHyti5IjZNQ="
+          alt="Register Banner"
+          class="card-img-top img-fluid"
+        />
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Register</h2>
+          <form action="/register" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" required />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please enter your username.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please enter your password.</div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<% layout('layout/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center mt-3 mb-5">
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-6 col-xl-4">
+      <div class="card shadow-lg">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1661957610869-668a3773055a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dW5lc2NvJTIwd29ybGQlMjBoZXJpdGFnZSUyMHNpdGV8ZW58MHx8MHx8fDA%3D"
+          alt="Login Banner"
+          class="card-img-top img-fluid"
+        />
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Login</h2>
+          <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please enter your username.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please enter your password.</div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
